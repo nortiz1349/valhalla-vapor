@@ -1,0 +1,33 @@
+{
+  "originHash" : "2da395ce0db90e7aa71833f068f1462cf5b110ba7791c080259f8d3ca7c4e786",
+  "pins" : [
+    {
+      "identity" : "anycodable",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Flight-School/AnyCodable",
+      "state" : {
+        "revision" : "862808b2070cd908cb04f9aafe7de83d35f81b05",
+        "version" : "0.6.7"
+      }
+    },
+    {
+      "identity" : "light-swift-untar",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nortiz1349/Light-Swift-Untar.git",
+      "state" : {
+        "revision" : "f00faa3aa2c5c5dad96525b4473c09df01c49695",
+        "version" : "1.0.7"
+      }
+    },
+    {
+      "identity" : "valhalla-openapi-models-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nortiz1349/valhalla-openapi-models-swift.git",
+      "state" : {
+        "revision" : "dcba979b446bee32a1aeb09fe87b36c20ba694ca",
+        "version" : "0.0.7"
+      }
+    }
+  ],
+  "version" : 3
+}

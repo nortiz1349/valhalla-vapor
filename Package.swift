@@ -5,17 +5,50 @@ import PackageDescription
 
 let package = Package(
     name: "valhalla-vapor",
+    platforms: [
+        .macOS(.v13)
+    ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "valhalla-vapor",
-            targets: ["valhalla-vapor"]),
+            name: "Valhalla",
+            targets: ["Valhalla"]),
+    ],
+    dependencies: [
+        .package(url: "https://github.com/nortiz1349/valhalla-openapi-models-swift.git", from: "0.0.4"),
+        .package(url: "https://github.com/nortiz1349/Light-Swift-Untar.git", from: "1.0.5"),
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "valhalla-vapor"),
-
-    ]
+            name: "Valhalla",
+            dependencies: [
+//                "ValhallaObjc",
+                "ValhallaWrapper",
+                .product(name: "ValhallaConfigModels", package: "valhalla-openapi-models-swift"),
+                .product(name: "ValhallaModels", package: "valhalla-openapi-models-swift"),
+                .product(name: "Light-Swift-Untar", package: "Light-Swift-Untar"),
+            ],
+            path: "Sources/Valhalla",
+            resources: [
+                .process("SupportData")
+            ],
+            cxxSettings: [
+                .headerSearchPath("build/valhalla-wrapper.xcframework/macos-arm64/Headers/include"),
+            ],
+            swiftSettings: [
+                .interoperabilityMode(.Cxx),
+            ],
+        ),
+//        .target(
+//            name: "ValhallaObjc",
+//            dependencies: ["ValhallaWrapper"],
+//            path: "Sources/ValhallaObjc",
+//            linkerSettings: [.linkedLibrary("z")]
+//        ),
+        .binaryTarget(
+            name: "ValhallaWrapper",
+            path: "build/valhalla-wrapper.xcframework"
+        )
+    ],
+    cLanguageStandard: .gnu17,
+    cxxLanguageStandard: .cxx17
 )

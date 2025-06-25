@@ -1,0 +1,6 @@
+module ValhallaWrapper {
+    header "main.h"
+    header "valhalla_actor.h"
+
+    export *
+}
