@@ -59,7 +59,11 @@ let package = Package(
                 .interoperabilityMode(.Cxx),
             ],
         ),
-        binaryTarget
+        .binaryTarget(
+            name: "ValhallaWrapper",
+            url: "https://github.com/nortiz1349/valhalla-vapor/releases/download/0.1.0/valhalla-wrapper.xcframework.zip",
+            checksum: "fa924c7256f4522f1aaabf192c27ca4656be9636404c5ca756805ad5f5812148"
+        )
     ],
     cLanguageStandard: .gnu17,
     cxxLanguageStandard: .cxx17
