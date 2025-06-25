@@ -31,9 +31,9 @@ let package = Package(
             resources: [
                 .process("SupportData")
             ],
-            cxxSettings: [
-                .headerSearchPath("build/valhalla-wrapper.xcframework/macos-arm64/Headers/include"),
-            ],
+//            cxxSettings: [
+//                .headerSearchPath("build/valhalla-wrapper.xcframework/macos-arm64/Headers/include"),
+//            ],
             swiftSettings: [
                 .interoperabilityMode(.Cxx),
             ],
@@ -44,9 +44,14 @@ let package = Package(
 //            path: "Sources/ValhallaObjc",
 //            linkerSettings: [.linkedLibrary("z")]
 //        ),
+//        .binaryTarget(
+//            name: "ValhallaWrapper",
+//            path: "build/valhalla-wrapper.xcframework"
+//        ),
         .binaryTarget(
             name: "ValhallaWrapper",
-            path: "build/valhalla-wrapper.xcframework"
+            url: "https://github.com/nortiz1349/valhalla-vapor/releases/download/0.1.0/valhalla-wrapper.xcframework.zip",
+            checksum: "fa924c7256f4522f1aaabf192c27ca4656be9636404c5ca756805ad5f5812148"
         )
     ],
     cLanguageStandard: .gnu17,
